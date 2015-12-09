@@ -1,10 +1,7 @@
 var port = process.env.PORT || 9000
 var http = require('http').Server();
 var io = require('socket.io')(http);
-var redis = require("redis").createClient({
-  host: process.env.REDIS_HOST || '127.0.0.1',
-  db: process.env.REDIS_DB || 'katana_dev',
-  port: process.env.REDIS_PORT || 6379 });
+var redis = require("redis").createClient({url: process.env.REDIS_URL});
 
 // Returns a socket object matching the specified socket id.
 function socketFromId(socketId) {
