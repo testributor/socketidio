@@ -1,7 +1,16 @@
+require('newrelic');
+
 var port = process.env.PORT || 9000
 var http = require('http').Server();
 var io = require('socket.io')(http);
-var redis = require("redis").createClient({url: process.env.REDIS_URL});
+if(process.env.REDIS_URL) {
+  var redis = require("redis").createClient({url: process.env.REDIS_URL});
+}
+else {
+  var redis = require("redis").createClient({
+    host: '127.0.0.1',
+    port: 6379 });
+}
 
 // Returns a socket object matching the specified socket id.
 function socketFromId(socketId) {
