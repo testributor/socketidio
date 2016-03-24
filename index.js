@@ -1,4 +1,4 @@
-require('newrelic');
+process.env.NEW_RELIC_APP_NAME && require('newrelic');
 
 var port = process.env.PORT || 9000
 var http = require('http').Server();
