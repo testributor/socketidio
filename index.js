@@ -39,7 +39,11 @@ redisPublishCallbacks = {
       parsedMsg = JSON.parse(msg);
       socketId = parsedMsg["socket_id"];
       if(socket = socketFromId(socketId)) {
-        socket.join(parsedMsg["room"]);
+        if(parsedMsg["rooms"]) {
+          parsedMsg["rooms"].forEach(function(room) {
+            socket.join(room);
+          })
+        }
       }
     } catch (err) { console.log(err) }
   }
