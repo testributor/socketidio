@@ -12,7 +12,6 @@ RUN apt-get install -y nodejs
 RUN mkdir /socketidio
 ADD index.js /socketidio/
 ADD package.json /socketidio/
-ADD newrelic.js /socketidio/
 
 WORKDIR "/socketidio"
 RUN npm install
