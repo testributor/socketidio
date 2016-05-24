@@ -1,6 +1,6 @@
 {
   "name": "testributor-socket-io-publisher",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Testributor socket.io publisher",
   "dependencies": {
     "express": "~4.10.2",
